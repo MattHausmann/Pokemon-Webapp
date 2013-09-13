@@ -1,0 +1,45 @@
+<script>
+
+</script>
+<%= link_to_function "a", "toggle_text()", class: "hidden", hidden: @post.a_visibility, id: 'butt1' %>
+<%= link_to_function "b", "toggle_text()", class: "hidden", hidden: @post.b_visibility, id: 'butt2' %>
+<p>
+	<strong>Title:</strong>
+	<%= @post.title %>
+</p>
+<p>
+	<strong>Text:</strong>
+	<%= @post.text %>
+</p>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+	<p>
+		<strong>
+			Commenter:
+		</strong>
+		<%= comment.commenter %>
+	</p>
+	<p>
+		<strong>
+			Comment:
+		</strong>
+		<%= comment.body %>
+	</p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+	<p>
+		<%= f.label :commenter %><br>
+		<%= f.text_field :commenter %>
+	</p>
+
+	<p>
+		<%= f.label :body %><br>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
