@@ -1,1 +1,27 @@
-<h1>Hello, Rails!</h1>
+<%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" %>
+<h2>Hello, Pokemon!</h2>
+<%= session[:user_id] %><br>
+<script>
+$(document).ready(function(){
+	$("#register").click(function(){
+  		$("#register_dialog").dialog({draggable: false, resizable: false});
+  		$("#register_dialog").show();
+  		$("#login_dialog").dialog('close');
+	});
+	$("#login").click(function(){
+  		$("#login_dialog").dialog({draggable: false, resizable: false});
+  		$("#login_dialog").show();
+  		$("#register_dialog").dialog('close');
+ 	});
+	
+});
+</script>
+<a href="#" id="register">register</a> <a href="#" id="login">log in</a>
+
+
+<div id="register_dialog" title="register" hidden="true">
+	<%= render template: 'users/new' %>
+</div>
+<div id="login_dialog" title="log in" hidden="true">
+	<%= render template: 'sessions/new' %>
+</div>

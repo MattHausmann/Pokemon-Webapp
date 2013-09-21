@@ -1,12 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.0.0'
+gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'prototype-rails'
+gem 'jquery-rails', '~> 2.1'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use unicorn as the web server
 # gem 'unicorn'
