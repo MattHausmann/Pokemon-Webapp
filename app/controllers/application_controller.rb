@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
 	private
 	def set_user
-		@user = User.new
+		@current_user = User.find_by(remember_token: User.encrypt(cookies[:remember_token]))
 	end
 end

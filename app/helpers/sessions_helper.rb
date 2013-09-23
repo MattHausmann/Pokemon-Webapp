@@ -7,6 +7,9 @@ module SessionsHelper
 	end
 
 	def current_user=(user)
-		@current_user = user
+		remember_token = User.encrypt(cookies[:remember_token])
+		@current_user ||= User.find_by(remember_token: remember_token)
+		print "aaaaaaaaaaaaaaaaa\n" 
+		print remember_token
 	end
 end

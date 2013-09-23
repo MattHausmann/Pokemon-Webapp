@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  def new
-  	@user = User.new
-  	print @user
-  end
+	def new
+		@user = User.new
+		print @user
+	end
 
 	def create
 		@user = User.create(user_params)
@@ -24,6 +24,16 @@ class UsersController < ApplicationController
 			render 'new'
 		end
 	end
+
+	def show
+		@current_user = User.find_by(remember_token: session[:remember_token])
+		print "WHOOOOOOOOOOOOOOOOOO showing current_user\n"
+		puts @current_user
+		print "WHOOOOOOOOOOOOOOOOOO showing remember_token"
+		puts cookies[:remember_token]
+	end
+
+
 
 	private
 		def user_params

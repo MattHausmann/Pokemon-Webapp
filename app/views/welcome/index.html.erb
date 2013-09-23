@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" %>
 <h2>Hello, Pokemon!</h2>
-<%= session[:user_id] %><br>
+<%= @current_user.id %><br>
 <script>
 $(document).ready(function(){
 	$("#register").click(function(){
